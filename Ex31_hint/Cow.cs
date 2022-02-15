@@ -4,24 +4,24 @@ using System.Text;
 
 namespace Ex31_hint
 {
-    class Tank : Character
+    class Cow : Character
     {
-        public int bullet = 0;
-        public Tank(string name, float hp, float power,float skin ) : base(name, hp, power,skin) { }
+        public float Cowhp = 5;
+        public Cow(string name, float hp, float power,float skin) : base(name, hp, power,skin) { }
+
         public override void Attack(Character destination)
         {
-            if (bullet > 0)
+            if (this.hp >= destination.hp)
             {
-                bullet--;
-                Console.WriteLine($"{this.name}は{destination.name}に向け大砲を発射！");
-                Console.WriteLine($"{destination.name}はうしろに吹っ飛んだ！");
+                Console.WriteLine($"{this.name}は{destination.name}に「角で突く」!");
                 Console.WriteLine($"{destination.name}は{this.power}のダメージ");
                 destination.hp -= this.power;
                 Console.WriteLine($"{destination.name}の残りのHPは{destination.hp}");
+                this.hp -= -10;
             }
             else
             {
-                Console.WriteLine($"{base.name}は弾切れです！");
+                Console.WriteLine("HPが少なくて攻撃できません");
             }
         }
     }

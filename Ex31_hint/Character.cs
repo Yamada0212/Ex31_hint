@@ -9,11 +9,13 @@ namespace Ex31_hint
         readonly public string name;
         public float hp;
         protected float power;
-        public Character(string name,float hp,float power)
+        public float skin;
+        public Character(string name,float hp,float power,float skin)
         {
             this.name = name;
             this.hp = hp;
             this.power = power;
+            this.skin = skin;
         }
         public virtual void Attack(Character destination)
         {
